@@ -1,5 +1,5 @@
 # ---------- STAGE 1: BUILD ----------
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 # Copiamos los csproj en el orden correcto de dependencias
@@ -23,7 +23,7 @@ RUN dotnet publish "MediTech/MediTech.API.csproj" -c Release -o /app/publish /p:
 
 
 # ---------- STAGE 2: RUNTIME ----------
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
 
 # Copiar archivos publicados
