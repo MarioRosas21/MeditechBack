@@ -1,0 +1,121 @@
+ALTER TABLE [MediTech_Dev].[dbo].[Citas]
+ADD [Motivo] NVARCHAR(255) NOT NULL 
+    CONSTRAINT DF_Citas_Motivo DEFAULT ('sin motivo');
+
+
+
+
+
+USE [MediTech_Dev]
+GO
+
+/****** Object:  Table [dbo].[Especialidades]    Script Date: 23/oct./2025 11:05:10 p. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Especialidades](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](100) NOT NULL,
+	[Descripcion] [varchar](256) NOT NULL,
+	[FechaCreacion] [datetime] NOT NULL,
+	[FechaActualizacion] [datetime] NOT NULL,
+	[EsActivo] [bit] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Especialidades] ADD  DEFAULT ('Sin especificar') FOR [Nombre]
+GO
+
+ALTER TABLE [dbo].[Especialidades] ADD  DEFAULT ('No definida') FOR [Descripcion]
+GO
+
+ALTER TABLE [dbo].[Especialidades] ADD  DEFAULT (getdate()) FOR [FechaCreacion]
+GO
+
+ALTER TABLE [dbo].[Especialidades] ADD  DEFAULT (getdate()) FOR [FechaActualizacion]
+GO
+
+ALTER TABLE [dbo].[Especialidades] ADD  DEFAULT ((1)) FOR [EsActivo]
+GO
+
+
+
+
+
+USE [MediTech_Dev]
+GO
+
+/****** Object:  Table [dbo].[Pacientes]    Script Date: 23/oct./2025 11:05:38 p. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Pacientes](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+	[ApellidoPaterno] [nvarchar](50) NOT NULL,
+	[ApellidoMaterno] [nvarchar](50) NOT NULL,
+	[Edad] [int] NOT NULL,
+	[FechaNacimiento] [date] NOT NULL,
+	[CURP] [nvarchar](18) NOT NULL,
+	[Email] [nvarchar](50) NOT NULL,
+	[Telefono] [nvarchar](20) NOT NULL,
+	[Genero] [nvarchar](20) NOT NULL,
+	[FechaCreacion] [datetime2](0) NOT NULL,
+	[FechaActualizacion] [datetime2](0) NOT NULL,
+	[EsActivo] [bit] NOT NULL,
+	[Contrasenia] [varchar](255) NOT NULL,
+ CONSTRAINT [PK_Pacientes] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Pacientes] ADD  DEFAULT (N'NOMBRE NO REGISTRADO') FOR [Nombre]
+GO
+
+ALTER TABLE [dbo].[Pacientes] ADD  DEFAULT (N'APELLIDO PATERNO NO REGISTRADO') FOR [ApellidoPaterno]
+GO
+
+ALTER TABLE [dbo].[Pacientes] ADD  DEFAULT (N'APELLIDO MATERNO NO REGISTRADO') FOR [ApellidoMaterno]
+GO
+
+ALTER TABLE [dbo].[Pacientes] ADD  DEFAULT ((0)) FOR [Edad]
+GO
+
+ALTER TABLE [dbo].[Pacientes] ADD  DEFAULT (CONVERT([date],sysdatetime())) FOR [FechaNacimiento]
+GO
+
+ALTER TABLE [dbo].[Pacientes] ADD  DEFAULT (N'VACIO') FOR [CURP]
+GO
+
+ALTER TABLE [dbo].[Pacientes] ADD  DEFAULT (N'SIN EMAIL') FOR [Email]
+GO
+
+ALTER TABLE [dbo].[Pacientes] ADD  DEFAULT (N'NO REGISTRADO') FOR [Telefono]
+GO
+
+ALTER TABLE [dbo].[Pacientes] ADD  DEFAULT (N'NO REGISTRADO') FOR [Genero]
+GO
+
+ALTER TABLE [dbo].[Pacientes] ADD  DEFAULT (N'VACIO') FOR [Contrasenia]
+GO
+
+ALTER TABLE [dbo].[Pacientes] ADD  DEFAULT (sysdatetime()) FOR [FechaCreacion]
+GO
+
+ALTER TABLE [dbo].[Pacientes] ADD  DEFAULT (sysdatetime()) FOR [FechaActualizacion]
+GO
+
+ALTER TABLE [dbo].[Pacientes] ADD  DEFAULT ((1)) FOR [EsActivo]
+GO

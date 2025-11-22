@@ -1,0 +1,6 @@
+@MediTech_HostAddress = http://localhost:5239
+
+GET {{MediTech_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

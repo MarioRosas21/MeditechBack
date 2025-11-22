@@ -1,0 +1,15 @@
+﻿global using Microsoft.Extensions.Configuration;
+global using System.Data;
+global using Microsoft.EntityFrameworkCore;
+global using MediTech.Infrastructure.DataContexts;
+global using MediTech.Domain.Dtos;
+global using MediTech.Domain.Entities.Usuarios_Entities;
+global using MediTech.Domain.Interfaces.Repositories.Usuarios_Repositiries;
+global using MediTech.Domain.Entities.Pacientes_Entities;
+global using MediTech.Domain.Interfaces.Repositories.Pacientes_Repositories;
+global using MediTech.Domain.Entities.Citas_Entities;
+global using MediTech.Domain.Interfaces.Repositories.Citas_Repositories;
+global using MediTech.Domain.Entities.Cede_Entities;
+global using MediTech.Domain.Interfaces.Repositories.Cedes_Repositories;
+global using MediTech.Domain.Entities.Especialidad_Entities;
+global using MediTech.Domain.Interfaces.Repositories.Especialidad_Repositories;
