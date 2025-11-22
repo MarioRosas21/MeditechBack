@@ -9,16 +9,16 @@ COPY MediTech.Domain/MediTech.Domain.csproj ./MediTech.Domain/
 COPY MediTech.Infrastructure/MediTech.Infrastructure.csproj ./MediTech.Infrastructure/
 
 # Restauramos dependencias usando el proyecto API
-RUN dotnet restore "MediTech.API/MediTech.API.csproj"
+RUN dotnet restore "MediTech/MediTech.API.csproj"
 
 # Copiamos todo el código
 COPY . .
 
 # Build del proyecto (opcional, pero recomendado)
-RUN dotnet build "MediTech.API/MediTech.API.csproj" -c Release -o /app/build
+RUN dotnet build "MediTech/MediTech.API.csproj" -c Release -o /app/build
 
 # Publicar el proyecto API
-RUN dotnet publish "MediTech.API/MediTech.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "MediTech/MediTech.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 
 
