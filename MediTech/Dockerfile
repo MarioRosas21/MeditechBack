@@ -8,7 +8,7 @@ COPY MediTech.Application/MediTech.Application.csproj ./MediTech.Application/
 COPY MediTech.Domain/MediTech.Domain.csproj ./MediTech.Domain/
 COPY MediTech.Infrastructure/MediTech.Infrastructure.csproj ./MediTech.Infrastructure/
 
-# Restauramos dependencias usando el proyecto API
+# Restauramos dependencias usando el proyecto API como punto de entrada
 RUN dotnet restore "MediTech/MediTech.API.csproj"
 
 # Copiamos todo el código
